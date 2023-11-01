@@ -27,10 +27,10 @@ $divt1 = $html->find('div.dropdown-menu.dropdown-menu-dark', 0)->plaintext;     
 $str1 = explode("    ", $divt1);
 $str2t1 = implode("    ", $str1);
 foreach ($str1 as $value) {
-    echo $value."<br>";
+    //echo $value."<br>";
 }
 echo count($str1); ?><br><?php
-echo $str2t1; ?><br><?php
+//echo $str2t1; ?><br><?php
 //$values = $values.$str2t1;
 
 ?><br><br><?php
@@ -160,34 +160,32 @@ echo $str2t1; ?><br><?php
             
             //$divt21link = $html->find('div.accordion-body', 7)->plaintext;
             //echo "--".$divt21link; ?><br><?php
-            $count_divt21link_url_0 = 0;                                          //use for url
-            $count_divt21link_url_1 = 0;                                          //use for url
+                                                     //use for url
             //$count_divt21link_url[][];                                          //use for url
             $divt21link_elements = $html->find('div.accordion-body');
             //$divt21link_elements2;
             $count_divt21link = count($divt21link_elements);
+            $count_divt21link_url_0 = 0;                                          //use for url
+            $count_divt21link_url_1 = 0; 
             for($i=1;$i<$count_divt21link;$i++){
-                $divt21link_for = $html->find('div.accordion-body', $i)->plaintext;
-                //$divt21link_for = $html->find('a', $i+3)->getAttribute('href');
-                $strt2_l1 = explode("เลือกลิ้งดูบอลด้านล่าง ", $divt21link_for);
-                $strt2_l1_2 = explode(" คลิกดูบอล ", $strt2_l1[1]);
+                //$divt21link_for = $html->find('div.accordion-body', $i)->getAttribute('href');
+                $divt21link_for = $html->find('a', $i+3)->getAttribute('href');
+                //$strt2_l1 = explode("เลือกลิ้งดูบอลด้านล่าง ", $divt21link_for);
+                //echo $strt2_l1[1];
+                //$strt2_l1_2 = explode(" คลิกดูบอล ", $strt2_l1[1]);
 
-                foreach ($strt2_l1_2 as $value) {
-                    echo $value."---<br>";
-                    $divt21link_url[$count_divt21link_url_0][$count_divt21link_url_1] = $value;
-                    //echo $count_divt21link_url[$count_divt21link_url_0][$count_divt21link_url_1]."-<br>";
-                    $count_divt21link_url_1 = $count_divt21link_url_1+1;
-                }
-
+                // foreach ($strt2_l1_2 as $value) {
+                //     echo $value."---<br>";
+                //     $divt21link_url[$count_divt21link_url_0][$count_divt21link_url_1] = $value;
+                //     //echo $count_divt21link_url[$count_divt21link_url_0][$count_divt21link_url_1]."-<br>";
+                //     $count_divt21link_url_1 = $count_divt21link_url_1+1;
+                // }
                     // echo $strt2_l1_2[$i]."---<br>";
                     // $divt21link_url[$count_divt21link_url_0][$count_divt21link_url_1] = $strt2_l1_2[$i];
                     // //echo $count_divt21link_url[$count_divt21link_url_0][$count_divt21link_url_1]."-<br>";
                     // $count_divt21link_url_1 = $count_divt21link_url_1+1;
-                
-
                 //echo "<br>";
                 $count_divt21link_url_0 = $count_divt21link_url_0+1;
-                
             }
             ?><br><?php
             //var_dumb($strt2_l1_2);
@@ -252,34 +250,8 @@ echo $str2t1; ?><br><?php
 </table>
 <?php
 
-
-
-
-//-----------------------------------------------------------------
-
 ?><br><?php
 
-// URL ของเว็บไซต์ที่คุณต้องการดึงข้อมูล
-$url = 'https://xn--l3car8bzaq6f.cc/'; // เปลี่ยน URL ตามที่คุณต้องการ
-
-// ดึงข้อมูลจาก URL
-$data = file_get_contents($url);
-//var_dump($data);
-
-if ($data !== false) {
-    // แปลงข้อมูล JSON ให้อยู่ในรูปแบบของ PHP
-    $decodedData = json_decode($data, true);
-
-    if ($decodedData !== null) {
-        // บันทึกข้อมูลลงในไฟล์ JSON
-        file_put_contents('data.json', json_encode($decodedData));
-        echo 'บันทึกข้อมูลลงในไฟล์ JSON เรียบร้อย';
-    } else {
-        echo 'ไม่สามารถแปลงข้อมูล JSON ได้';
-    }
-} else {
-    echo 'ไม่สามารถดึงข้อมูลจากเว็บได้';
-}
 
 ?>
 
