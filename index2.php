@@ -160,20 +160,71 @@ echo count($str1); ?><br><?php
             
             //$divt21link = $html->find('div.accordion-body', 7)->plaintext;
             //echo "--".$divt21link; ?><br><?php
-                                                     //use for url
+                                                     
+            $divt21link_elements0 = $html->find('div.accordion-body a');
+            $divt21link_elements0_copy = array();
+            $urls = array();
+
+            // foreach ($divt21link_elements0 as $link) {
+            //     $url = $link->href; // ดึงค่า href จากแท็ก <a>
+            //     $urls[] = $url;
+            //     echo $url."<br>";
+            // }
+            // echo "<br>";
+
             //$count_divt21link_url[][];                                          //use for url
+            
             $divt21link_elements = $html->find('div.accordion-body');
+            $divt21link_elementss = $html->find('div.accordion-body a');
+            $divt21url_elements = $html->find('a',9)->getAttribute('href');
             //$divt21link_elements2;
             $count_divt21link = count($divt21link_elements);
-            $count_divt21link_url_0 = 0;                                          //use for url
-            $count_divt21link_url_1 = 0; 
-            for($i=1;$i<$count_divt21link;$i++){
-                //$divt21link_for = $html->find('div.accordion-body', $i)->getAttribute('href');
-                $divt21link_for = $html->find('a', $i+3)->getAttribute('href');
-                //$strt2_l1 = explode("เลือกลิ้งดูบอลด้านล่าง ", $divt21link_for);
-                //echo $strt2_l1[1];
-                //$strt2_l1_2 = explode(" คลิกดูบอล ", $strt2_l1[1]);
+            $count_divt21links = count($divt21link_elementss);
+            $num_link = 0;
+            //$count_divt21link_url_0 = 0;                                          //use for url
+            //$count_divt21link_url_1 = 0; 
+            //echo $divt21link_elements[0].'<br>'.$divt21link_elements[1].'<br>'.$divt21link_elements[2];
+            for($i=0;$i<$count_divt21link;$i++){
+                $divt21link_for = $html->find('div.accordion-body', $i)->plaintext;
+                //echo $divt21link_for."<br><br>";
+                //$divt21link_for = $html->find('a', $i+8)->getAttribute('href');
+                $strt2_l1 = explode("เลือกลิ้งดูบอลด้านล่าง ", $divt21link_for);
+                //echo "-*-".$strt2_l1[1]."<br>";
+                $strt2_l1_2 = explode(" คลิกดูบอล ", $strt2_l1[1]);
+                $count_strt2_l1_2 = count($strt2_l1_2);
+                //echo $count_strt2_l1_2."<br>";
+                for($j=0;$j<$count_strt2_l1_2;$j++){
+                    if($strt2_l1_2[$j] != ""){
+                        $link = $divt21link_elementss[$num_link];
+                        $url = $link->href;
+                        echo "-*-".$strt2_l1_2[$j]." +*+ ".$url;
+                        $num_link++;
+                        echo "<br>";
+                    }else{
+                        $j++;
+                        echo " 000<br>";
+                    }
+                }
+                if($divt21link_elements[$i] != " "){
+                    $divt21link_elementsz = $divt21link_elements[$i];
+                    //$count_divt21link_elements = count($divt21link_elementsz);
+                    //echo $divt21link_elements[$i];
+                    // $link = $divt21link_elementss[$i];
+                    // $url = $link->href;         // ดึงค่า href จากแท็ก <a>
+                    // $urls[] = $url;
+                    // echo $url."<br>";
+                }else{
+                    echo "xxx<br>";
+                }
+                
+                
 
+                foreach ($urls as $url) {
+                    //echo $url."---<br>";
+                    //$divt21link_url[$count_divt21link_url_0][$count_divt21link_url_1] = $value;
+                    //echo $count_divt21link_url[$count_divt21link_url_0][$count_divt21link_url_1]."-<br>";
+                    //$count_divt21link_url_1 = $count_divt21link_url_1+1;
+                }
                 // foreach ($strt2_l1_2 as $value) {
                 //     echo $value."---<br>";
                 //     $divt21link_url[$count_divt21link_url_0][$count_divt21link_url_1] = $value;
@@ -185,27 +236,12 @@ echo count($str1); ?><br><?php
                     // //echo $count_divt21link_url[$count_divt21link_url_0][$count_divt21link_url_1]."-<br>";
                     // $count_divt21link_url_1 = $count_divt21link_url_1+1;
                 //echo "<br>";
-                $count_divt21link_url_0 = $count_divt21link_url_0+1;
+                //$count_divt21link_url_0 = $count_divt21link_url_0+1;
             }
             ?><br><?php
-            //var_dumb($strt2_l1_2);
+            echo $count_divt21link."<br>";
+            echo $count_divt21links;
             ?><br><?php
-            // //var_dump($divt21link_url);    ?><br><?php
-            // echo $count_divt21link_url_0;     ?><br><?php
-            // echo $count_divt21link_url_1;     ?><br><?php
-            // //echo $strt2_l1_2[4];
-            // //var_dump($strt2_l1_2);
-            // $count_strt2_l1_2 = count($strt2_l1_2);
-            // echo $count_strt2_l1_2;     ?><br><?php
-            // echo $count_divt21link;     ?><br><br><?php
-
-            // $divt21url_all = $html->find('div.row.mb-2.border');
-            // $count_divt21url_all = count($divt21url_all);
-            // echo $count_divt21url_all; ?><br><?php
-
-            // $divt21link_url = array(                                          //use for url
-            //     array("",)
-            // );
         ?>
     </td>
     <td>
@@ -235,7 +271,7 @@ echo count($str1); ?><br><?php
                 //     //echo $value."---<br>";
                 // }
                 //echo "<br>";
-                $count_divt21link_url_0 = $count_divt21link_url_0+1;
+                //$count_divt21link_url_0 = $count_divt21link_url_0+1;
                 
             }
             

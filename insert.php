@@ -56,9 +56,11 @@
         //$divt21link_for = $html->find('a', $i+3)->getAttribute('href');
         $strt2_l1 = explode("เลือกลิ้งดูบอลด้านล่าง ", $divt21link_for);
         $strt2_l1_2 = explode(" คลิกดูบอล ", $strt2_l1[1]);
+        $count_strt2_l1_2 = count($strt2_l1_2);
+        //echo $count_strt2_l1_2."<br>";
 
         foreach ($strt2_l1_2 as $value) {
-            echo $value."<br>";
+            //echo $value."<br>";
             $stripData5 = strip_tags($value);
             $valueLink[] = $stripData5;
             //echo $stripData5; 
@@ -190,22 +192,22 @@ for($i=0;$i<$countStr1;$i++){
 
     ?><br><br><?php
 
-    $filename = 'data_api.json';
+    // $filename = 'data_api.json';
 
-    // เปิดไฟล์เพื่อเขียนข้อมูลแบบ Streaming JSON
-    $file = fopen($filename, 'w');
+    // // เปิดไฟล์เพื่อเขียนข้อมูลแบบ Streaming JSON
+    // $file = fopen($filename, 'w');
 
-    if ($file) {
-        $json = json_encode($array_s, JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT);
+    // if ($file) {
+    //     $json = json_encode($array_s, JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT);
 
-        if (json_last_error() === JSON_ERROR_NONE) {
-            fwrite($file, $json);
-            fclose($file);
-            echo "JSON data has been written to $filename";
-        } else {
-            echo "Error encoding JSON: " . json_last_error_msg();
-        }
-    } else {
-        echo "Error opening file for writing";
-    }
+    //     if (json_last_error() === JSON_ERROR_NONE) {
+    //         fwrite($file, $json);
+    //         fclose($file);
+    //         echo "JSON data has been written to $filename";
+    //     } else {
+    //         echo "Error encoding JSON: " . json_last_error_msg();
+    //     }
+    // } else {
+    //     echo "Error opening file for writing";
+    // }
 ?>
