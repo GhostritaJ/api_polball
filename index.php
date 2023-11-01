@@ -3,9 +3,9 @@
     require_once('dbconfig.php');
     
 
-    $db = new Database('localhost', 'polball', 'root', '');
+    //$db = new Database('localhost', 'polball', 'root', '');
 
-    //$show = array; 
+    $show = []; 
 
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         echo json_decode($db->query('SELECT * FROM polball_tb'));
