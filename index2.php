@@ -1,11 +1,3 @@
-<style>
-    .row.p-1.mb-2{
-        background-color: white !important;
-    }
-    td, tr{
-        height: 20px;
-    }
-</style>
 <?php
 
 include('simple_html_dom.php');
@@ -33,12 +25,7 @@ foreach ($str1 as $value) {
 //echo $str2t1; 
 //$values = $values.$str2t1;
 
-?><?php
-
-//---------------------------------- TABLE 2 ------------------------------------------
 ?>
-<table>
-    <td>
         <?php
 //---------------------------------- league ------------------------------------------------
 
@@ -58,10 +45,8 @@ foreach ($str1 as $value) {
             // $divt2t2 = $html->find('div.col.p-2.border.border-secondary', 0)->plaintext;
             // $str2 = explode("    ", $divt2t2);
 
-            //echo $count_divt20;  ?><?php
-        ?>
-    </td>
-    <td>
+            //echo $count_divt20;  ?>
+    
         <?php
 ////---------------------------------- live time ------------------------------------------------
 
@@ -86,8 +71,7 @@ foreach ($str1 as $value) {
             //echo $divt21td_elements_exp_arr[1]; ?><?php
             //echo $count_divt21td;  ?><?php
         ?>
-    </td>
-    <td>
+    
         <?php
 ////---------------------------------- home team ------------------------------------------------
 
@@ -110,8 +94,7 @@ foreach ($str1 as $value) {
             //echo $divt21ht_elements_exp_arr[0]."<br>";
             //echo $count_divt21ht;  ?><?php
         ?>
-    </td>
-    <td>
+    
         <?php
 ////---------------------------------- score ------------------------------------------------
 
@@ -119,16 +102,22 @@ foreach ($str1 as $value) {
             //echo $divt21sc; 
             $divt21sc_elements = $html->find('span.border.border-secondary');
             $count_divt21sc = count($divt21sc_elements);
-
+            $homescore = array();
+            $awayscore = array();
+            
             for($i=0;$i<$count_divt21sc;$i++){
-                //echo $divt21sc_elements[$i];
+                $divt21sc_elements_exp = explode(" : ",$divt21sc_elements[$i]);
+                $homescore[$i] = $divt21sc_elements_exp[0];
+                $awayscore[$i] = $divt21sc_elements_exp[1];
+                //echo $divt21sc_elements[$i]."  ".$homescore[$i]." :: ".$awayscore[$i];
                 ?><?php
             }
-
+            // echo $divt21sc_elements[0]."  ".$homescore[0]." :: ".$awayscore[0]."<br>";
+            // echo $divt21sc_elements[1]."  ".$homescore[1]." :: ".$awayscore[1]."<br>";
+            // echo $divt21sc_elements[2]."  ".$homescore[2]." :: ".$awayscore[2]."<br>";
             //echo $count_divt21sc;  ?><?php
         ?>
-    </td>
-    <td>
+    
         <?php
 ////---------------------------------- away team ------------------------------------------------
 
@@ -153,8 +142,7 @@ foreach ($str1 as $value) {
 
             //echo $count_divt21at;  ?><?php
         ?>
-    </td>
-    <td>
+    
         <?php
 ////---------------------------------- links-name ------------------------------------------------
             
@@ -195,8 +183,7 @@ foreach ($str1 as $value) {
             //echo $count_divt21links;
             ?><?php
         ?>
-    </td>
-    <td>
+    
         <?php
 ////---------------------------------- links-url ------------------------------------------------
 
@@ -234,6 +221,5 @@ foreach ($str1 as $value) {
             $count_divt21url_all = count($divt21url_all);
             //echo $count_divt21url_all; ?><?php
         ?>
-    </td>
-</table>
+    
 

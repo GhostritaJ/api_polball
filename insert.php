@@ -7,6 +7,7 @@
     $valueScore = array();
     $valueLink = array();
     $valueAll = array();
+    $awayscore = array();
     
     //echo $divt20_elements[1];
     $divt21td_elements_exp_arr[1];
@@ -46,6 +47,15 @@
     ?><?php
     //var_dump($valueAwayteam);
     //echo $valueHometeam[0];
+
+    for( $i = 0; $i < count($divt21sc_elements); $i++){
+        $stripData5 = strip_tags($divt21sc_elements[$i]);
+        $score_exp = explode(" : ", $stripData5);
+        //echo $score_exp[0].$score_exp[1]."<br>";
+        $awayscore[] = $score_exp[1];
+        //echo $stripData5."<br>"; 
+    }
+    //echo "--*".json_encode($awayscore, JSON_UNESCAPED_UNICODE|JSON_FORCE_OBJECT)."*--<br>";
 
     $count_divt21link_url_0 = 0;                                          //use for url
     $count_divt21link_url_1 = 0;
@@ -88,6 +98,9 @@ $divt21url_elements = $html->find('a',9)->getAttribute('href');
 $count_divt21link = count($divt21link_elements);
 $count_divt21links = count($divt21link_elementss);
 $num_link = 0;
+
+//echo $divt21sc_elements[0]."  ".$homescore[0]." :: ".$awayscore[0]."<br>";
+
 //echo $divt21link_elements[0].'<br>'.$divt21link_elements[1].'<br>'.$divt21link_elements[2];
 for($i=0;$i<$count_divt21link;$i++){
     $divt21link_for = $html->find('div.accordion-body', $i)->plaintext;
@@ -104,10 +117,11 @@ for($i=0;$i<$count_divt21link;$i++){
     	"league" => $valueLeague[$i],
         "live_time" => $divt21td_elements_exp_arr[$i],
         "hometeam" => $valueHometeam[$i],
+        "homescore" => $homescore[$i],
         "awayteam" => $valueAwayteam[$i],
-        "score" => $valueScore[$i],
+        "awayscore" => $awayscore[$i],
+        //"score" => $valueScore[$i],
         "link" => array()
-        //$valueLink[$i]
     );
     
     for($j=0;$j<$count_strt2_l1_2;$j++){
@@ -192,8 +206,8 @@ for($i=0;$i<$countStr1;$i++){
     //------------------------- ++++ --------------------------------
 
     $array_s = array(
-        "tb1" => $array_c,
-        "tb2" => $array_a
+        //"tb1" => $array_c,
+        "list" => $array_a
     );
 
     $jsonData3 = json_encode($array_s, JSON_UNESCAPED_UNICODE|JSON_FORCE_OBJECT);
