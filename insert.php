@@ -1,6 +1,5 @@
 <?php
     include_once('index2.php');
-    ?><br><?php
 
     $valueLeague = array();
     $valueHometeam = array();
@@ -19,14 +18,14 @@
     }
     //echo $valueLeague[0];
     //echo $divt21ht_elements_exp_arr[0];
-    ?><br><?php
+    ?><?php
 
     for( $i = 0; $i < count($divt21ht_elements_exp_arr); $i++){
         $stripData2 = strip_tags($divt21ht_elements_exp_arr[$i]);
         $valueHometeam[] = $stripData2;
         //echo $stripData2; 
     }
-    ?><br><?php
+    ?><?php
     //var_dump($valueHometeam);
     //echo $valueHometeam[0];
 
@@ -35,7 +34,7 @@
         $valueAwayteam[] = $stripData3;
         //echo $stripData; 
     }
-    ?><br><?php
+    ?><?php
     //var_dump($valueAwayteam);
     //echo $valueHometeam[0];
 
@@ -44,7 +43,7 @@
         $valueScore[] = $stripData4;
         //echo $stripData4; 
     }
-    ?><br><?php
+    ?><?php
     //var_dump($valueAwayteam);
     //echo $valueHometeam[0];
 
@@ -72,78 +71,11 @@
         $count_divt21link_url_0 = $count_divt21link_url_0+1;
 
     }
-    //var_dump($valueLink);
-
-    //---------------------------------------**************
     
-    // $count_divt21link_url_0 = 0;                                          //use for url
-    // $count_divt21link_url_1 = 0; 
-    // for($i=1;$i<$count_divt21link;$i++){
-    //     $divt21link_for = $html->find('div.accordion-body', $i)->plaintext;
-    //     //$divt21link_for = $html->find('a', $i+3)->getAttribute('href');
-    //     $strt2_l1 = explode("เลือกลิ้งดูบอลด้านล่าง ", $divt21link_for);
-    //     $strt2_l1_2 = explode(" คลิกดูบอล ", $strt2_l1[1]);
-
-    //     foreach ($strt2_l1_2 as $value) {
-    //         echo $value."---<br>";
-    //         $divt21link_url[$count_divt21link_url_0][$count_divt21link_url_1] = $value;
-    //         //echo $count_divt21link_url[$count_divt21link_url_0][$count_divt21link_url_1]."-<br>";
-    //         $count_divt21link_url_1 = $count_divt21link_url_1+1;
-    //     }
-    //         // echo $strt2_l1_2[$i]."---<br>";
-    //         // $divt21link_url[$count_divt21link_url_0][$count_divt21link_url_1] = $strt2_l1_2[$i];
-    //         // //echo $count_divt21link_url[$count_divt21link_url_0][$count_divt21link_url_1]."-<br>";
-    //         // $count_divt21link_url_1 = $count_divt21link_url_1+1;
-    //     //echo "<br>";
-    //     $count_divt21link_url_0 = $count_divt21link_url_0+1;
-    // }
-
-    //--------------------------------------***********
-
-    ?><br><?php
-    //var_dump($valueLink);
-    //echo $valueLink[1];
 //----------------------------------honazzz------------------------------------
 //------------TB2-------------
 $array_a=[$count_divt20];
 $num_link = 0;
-// for($i=0;$i<$count_divt20;$i++){
-//     $divt21link_for = $html->find('div.accordion-body', $i)->plaintext;
-// 	$array_b = array(
-//     	"league" => $valueLeague[$i],
-//         "live_time" => $divt21td_elements_exp_arr[$i],
-//         "hometeam" => $valueHometeam[$i],
-//         "awayteam" => $valueAwayteam[$i],
-//         "score" => $valueScore[$i],
-//         "link" => array()
-//         //$valueLink[$i]
-//     );
-//     //echo $strt2_l1_2[0];
-//     for($j=0;$j<$count_strt2_l1_2;$j++){
-        
-//         $strt2_l1 = explode("เลือกลิ้งดูบอลด้านล่าง ", $divt21link_for);
-//         //echo "-*-".$strt2_l1[1]."<br>";
-//         $strt2_l1_2 = explode(" คลิกดูบอล ", $strt2_l1[1]);
-//         if($strt2_l1_2[$j] != ""){
-            
-//             $link = $divt21link_elementss[$num_link];
-//             $url = $link->href;
-//             //echo $url."xxxxx<br>";
-//             //echo "-*-".$strt2_l1_2[$j];
-//             //echo " +*+ ".$url;
-//             $num_link++;
-//             //echo "<br>";
-//             if (isset($valueLink[$i])) {
-//                 // If there are links, add them to the "link" array in $array_b
-//                 $array_b["link"] = $url;
-//             }
-//         }
-//     }
-
-// 	array_push($array_a,$array_b);
-// }
-// print_r($array_a); ?><br><?php
-//echo $count_divt20."--*--".$divt21link_for."<br>";
 
 //-----------------*----------------*-------------------------------
 $divt21link_elements0 = $html->find('div.accordion-body a');
@@ -165,7 +97,7 @@ for($i=0;$i<$count_divt21link;$i++){
     //echo "-*-".$strt2_l1[1]."<br>";
     $strt2_l1_2 = explode(" คลิกดูบอล ", $strt2_l1[1]);
     $count_strt2_l1_2 = count($strt2_l1_2)-1;
-    echo $count_strt2_l1_2."<br>";
+    //echo $count_strt2_l1_2."<br>";
     //echo $strt2_l1_2[0].",<br>".$strt2_l1_2[1].",<br>".$strt2_l1_2[2].",<br>".$strt2_l1_2[3].",<br>";
     
     $array_b = array(
@@ -182,11 +114,8 @@ for($i=0;$i<$count_divt21link;$i++){
         if($strt2_l1_2[$j] != ""){
             $link = $divt21link_elementss[$num_link];
             $url = $link->href;
-            echo "////-*-////".$strt2_l1_2[$j]." +*+ ".$url;
-            
-            //echo count(va)
-            //echo $valueLink[$i]."<br>";
-            echo "<br>";
+            //echo "////-*-////".$strt2_l1_2[$j]." +*+ ".$url;
+            //echo "<br>";
             if (isset($valueLink[$i])) {
                 // If there are links, add them to the "link" array in $array_b
                 $array_b["link"][$j] = $url;
@@ -198,14 +127,12 @@ for($i=0;$i<$count_divt21link;$i++){
     }
     array_push($array_a,$array_b);
 }
-?><br><?php
-echo $count_divt21link."<br>";
-echo $count_divt21links;
-?><br><?php
+//echo $count_divt21link."<br>";
+//echo $count_divt21links;
 
 //----------------------*----------------------*------------------*--------------------
 
-print_r($array_a);
+//print_r($array_a);
 
 //------------TB1-------------
 $array_c=[count($str1)]; 
@@ -220,7 +147,6 @@ for($i=0;$i<$countStr1;$i++){
 }
 //print_r($array_c);
 
-?><br><br><?php
 //----------------------------------honazzz------------------------------------
 
     // if(count($array_a)!=0 || count($array_a)!=''){
@@ -272,12 +198,11 @@ for($i=0;$i<$countStr1;$i++){
 
     $jsonData3 = json_encode($array_s, JSON_UNESCAPED_UNICODE|JSON_FORCE_OBJECT);
 
+    //echo $jsonData3."<br>";
     echo $jsonData3."<br>";
         
         //array_push($array_c,$array_d);
     //print_r($array_s);
-
-    ?><br><br><?php
 
     $filename = 'data_api.json';
 

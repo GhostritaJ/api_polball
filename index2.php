@@ -20,7 +20,7 @@ $values = [];
 //$div1 = $html->find('div#myBtnContainer.row.p-1', 0)->plaintext;
 
 $span1 = $html->find('span.d-flex', 0)->plaintext;                  //เลือก ลีก/ประเทศ
-echo $span1; ?><br><br><?php
+//echo $span1; ?><?php
 
 $divt1 = $html->find('div.dropdown-menu.dropdown-menu-dark', 0)->plaintext;         //all
 //$count1 = strlen($divt1);       //echo $count1;
@@ -29,11 +29,11 @@ $str2t1 = implode("    ", $str1);
 foreach ($str1 as $value) {
     //echo $value."<br>";
 }
-echo count($str1); ?><br><?php
-//echo $str2t1; ?><br><?php
+//echo count($str1); 
+//echo $str2t1; 
 //$values = $values.$str2t1;
 
-?><br><br><?php
+?><?php
 
 //---------------------------------- TABLE 2 ------------------------------------------
 ?>
@@ -51,14 +51,14 @@ echo count($str1); ?><br><?php
                 $divt20_elements_exp = explode("<",$divt20_elements[$i]);
                 //echo $divt20_elements_exp[1];
                 $divt20_elements_exp2 = explode(">",$divt20_elements_exp[1]);
-                echo $divt20_elements_exp2[1];
-                ?><br><?php
+                //echo $divt20_elements_exp2[1];
+                ?><?php
             }
 
             // $divt2t2 = $html->find('div.col.p-2.border.border-secondary', 0)->plaintext;
             // $str2 = explode("    ", $divt2t2);
 
-            echo $count_divt20;  ?><br><br><?php
+            //echo $count_divt20;  ?><?php
         ?>
     </td>
     <td>
@@ -71,7 +71,7 @@ echo count($str1); ?><br><?php
 
             $count_divt21td = count($divt21td_elements);
 
-            //echo "**".$divt21td_elements[0]; ?><br><br><?php
+            //echo "**".$divt21td_elements[0]; ?><?php
 
             $divt21td_elements_exp_arr;
 
@@ -80,11 +80,11 @@ echo count($str1); ?><br><?php
                 //$divt21td_elements_slice = slice($divt21td_elements_exp,0,3);
                 //print_r($divt21td_elements_exp);
                 $divt21td_elements_exp_arr[$i] = $divt21td_elements_exp[2]." ".$divt21td_elements_exp[3];
-                echo $divt21td_elements_exp_arr[$i];
-                ?><br><?php
+                //echo $divt21td_elements_exp_arr[$i];
+                ?><?php
             }
-            //echo $divt21td_elements_exp_arr[1]; ?><br><br><?php
-            echo $count_divt21td;  ?><br><br><?php
+            //echo $divt21td_elements_exp_arr[1]; ?><?php
+            //echo $count_divt21td;  ?><?php
         ?>
     </td>
     <td>
@@ -104,11 +104,11 @@ echo count($str1); ?><br><?php
                 //echo $divt21ht_elements_exp[1];
                 $divt21ht_elements_exp2 = explode(">",$divt21ht_elements_exp[1]);
                 $divt21ht_elements_exp_arr[$i] = $divt21ht_elements_exp2[1];
-                echo $divt21ht_elements_exp_arr[$i]."<br>";
+                //echo $divt21ht_elements_exp_arr[$i]."<br>";
                 ?><?php
             }
             //echo $divt21ht_elements_exp_arr[0]."<br>";
-            echo $count_divt21ht;  ?><br><br><?php
+            //echo $count_divt21ht;  ?><?php
         ?>
     </td>
     <td>
@@ -121,11 +121,11 @@ echo count($str1); ?><br><?php
             $count_divt21sc = count($divt21sc_elements);
 
             for($i=0;$i<$count_divt21sc;$i++){
-                echo $divt21sc_elements[$i];
-                ?><br><?php
+                //echo $divt21sc_elements[$i];
+                ?><?php
             }
 
-            echo $count_divt21sc;  ?><br><br><?php
+            //echo $count_divt21sc;  ?><?php
         ?>
     </td>
     <td>
@@ -145,13 +145,13 @@ echo count($str1); ?><br><?php
                 $divt21at_elements_exp2 = explode(">",$divt21at_elements_exp[1]);
                 //echo $divt21at_elements_exp2[1]."<br>";
                 $divt21at_elements_exp_arr[$i] = $divt21at_elements_exp2[1];
-                echo $divt21at_elements_exp_arr[$i]."<br>";
+                //echo $divt21at_elements_exp_arr[$i]."<br>";
                 ?><?php
 
                 //echo $divt21at_elements[$i];
             }
 
-            echo $count_divt21at;  ?><br><br><?php
+            //echo $count_divt21at;  ?><?php
         ?>
     </td>
     <td>
@@ -178,22 +178,22 @@ echo count($str1); ?><br><?php
                 //echo "-*-".$strt2_l1[1]."<br>";
                 $strt2_l1_2 = explode(" คลิกดูบอล ", $strt2_l1[1]);
                 $count_strt2_l1_2 = count($strt2_l1_2)-1;
-                echo $count_strt2_l1_2."<br>";
+                //echo $count_strt2_l1_2."<br>";
                 //echo $strt2_l1_2[0].",<br>".$strt2_l1_2[1].",<br>".$strt2_l1_2[2].",<br>".$strt2_l1_2[3].",<br>";
                 for($j=0;$j<$count_strt2_l1_2;$j++){
                     if($strt2_l1_2[$j] != ""){
                         $link = $divt21link_elementss[$num_link];
                         $url = $link->href;
-                        echo "-*-".$strt2_l1_2[$j]." +*+ ".$url;
+                        //echo "-*-".$strt2_l1_2[$j]." +*+ ".$url;
                         $num_link++;
-                        echo "<br>";
+                        //echo "<br>";
                     }
                 }
             }
-            ?><br><?php
-            echo $count_divt21link."<br>";
-            echo $count_divt21links;
-            ?><br><?php
+            ?><?php
+            //echo $count_divt21link."<br>";
+            //echo $count_divt21links;
+            ?><?php
         ?>
     </td>
     <td>
@@ -204,15 +204,15 @@ echo count($str1); ?><br><?php
             $count_divt21url_all = count($divt21url_all);
             $divt21url = $html->find('a',9)->getAttribute('href');
             //$divt21url_elements01 = $html->find('div.accordion-body',1)->getAttribute('href');
-            //echo "--".$divt21url; ?><br><?php
+            //echo "--".$divt21url; ?><?php
             $divt21url_elements = $html->find('div.accordion-body');
             $count_divt21url = count($divt21url_elements);
-            echo $count_divt21url;
+            //echo $count_divt21url;
 
             for($i=1;$i<=$count_divt21url_all;$i++){
                 //$divt21url_for = $html->find('div.accordion-body', $i)->plaintext;
                 $divt21url_for = $html->find('a', $i+8)->getAttribute('href');
-                echo $divt21url_for."<br>";
+                //echo $divt21url_for."<br>";
                 //$count_divt21url_for = count($divt21url_for);
                 //echo $count_divt21url_for;
             }
@@ -227,20 +227,13 @@ echo count($str1); ?><br><?php
                 
             }
             
-            ?><br><br><?php
-            echo $count_divt21url;  ?><br><br><?php
+            ?><?php
+            //echo $count_divt21url;  ?><?php
 
             $divt21url_all = $html->find('div.row.mb-2.border');
             $count_divt21url_all = count($divt21url_all);
-            echo $count_divt21url_all; ?><br><?php
+            //echo $count_divt21url_all; ?><?php
         ?>
     </td>
 </table>
-<?php
-
-?><br><?php
-
-
-?>
-
 
