@@ -106,18 +106,106 @@
 //----------------------------------honazzz------------------------------------
 //------------TB2-------------
 $array_a=[$count_divt20];
+$num_link = 0;
+// for($i=0;$i<$count_divt20;$i++){
+//     $divt21link_for = $html->find('div.accordion-body', $i)->plaintext;
+// 	$array_b = array(
+//     	"league" => $valueLeague[$i],
+//         "live_time" => $divt21td_elements_exp_arr[$i],
+//         "hometeam" => $valueHometeam[$i],
+//         "awayteam" => $valueAwayteam[$i],
+//         "score" => $valueScore[$i],
+//         "link" => array()
+//         //$valueLink[$i]
+//     );
+//     //echo $strt2_l1_2[0];
+//     for($j=0;$j<$count_strt2_l1_2;$j++){
+        
+//         $strt2_l1 = explode("เลือกลิ้งดูบอลด้านล่าง ", $divt21link_for);
+//         //echo "-*-".$strt2_l1[1]."<br>";
+//         $strt2_l1_2 = explode(" คลิกดูบอล ", $strt2_l1[1]);
+//         if($strt2_l1_2[$j] != ""){
+            
+//             $link = $divt21link_elementss[$num_link];
+//             $url = $link->href;
+//             //echo $url."xxxxx<br>";
+//             //echo "-*-".$strt2_l1_2[$j];
+//             //echo " +*+ ".$url;
+//             $num_link++;
+//             //echo "<br>";
+//             if (isset($valueLink[$i])) {
+//                 // If there are links, add them to the "link" array in $array_b
+//                 $array_b["link"] = $url;
+//             }
+//         }
+//     }
 
-for($i=0;$i<$count_divt20;$i++){
-	$array_b = array(
+// 	array_push($array_a,$array_b);
+// }
+// print_r($array_a); ?><br><?php
+//echo $count_divt20."--*--".$divt21link_for."<br>";
+
+//-----------------*----------------*-------------------------------
+$divt21link_elements0 = $html->find('div.accordion-body a');
+$divt21link_elements0_copy = array();
+$urls = array();
+
+$divt21link_elements = $html->find('div.accordion-body');
+$divt21link_elementss = $html->find('div.accordion-body a');
+$divt21url_elements = $html->find('a',9)->getAttribute('href');
+$count_divt21link = count($divt21link_elements);
+$count_divt21links = count($divt21link_elementss);
+$num_link = 0;
+//echo $divt21link_elements[0].'<br>'.$divt21link_elements[1].'<br>'.$divt21link_elements[2];
+for($i=0;$i<$count_divt21link;$i++){
+    $divt21link_for = $html->find('div.accordion-body', $i)->plaintext;
+    //echo $divt21link_for."<br><br>";
+    //$divt21link_for = $html->find('a', $i+8)->getAttribute('href');
+    $strt2_l1 = explode("เลือกลิ้งดูบอลด้านล่าง ", $divt21link_for);
+    //echo "-*-".$strt2_l1[1]."<br>";
+    $strt2_l1_2 = explode(" คลิกดูบอล ", $strt2_l1[1]);
+    $count_strt2_l1_2 = count($strt2_l1_2)-1;
+    echo $count_strt2_l1_2."<br>";
+    //echo $strt2_l1_2[0].",<br>".$strt2_l1_2[1].",<br>".$strt2_l1_2[2].",<br>".$strt2_l1_2[3].",<br>";
+    
+    $array_b = array(
     	"league" => $valueLeague[$i],
         "live_time" => $divt21td_elements_exp_arr[$i],
         "hometeam" => $valueHometeam[$i],
         "awayteam" => $valueAwayteam[$i],
         "score" => $valueScore[$i],
-        "link" => $valueLink[$i]
+        "link" => array()
+        //$valueLink[$i]
     );
-	array_push($array_a,$array_b);
+    
+    for($j=0;$j<$count_strt2_l1_2;$j++){
+        if($strt2_l1_2[$j] != ""){
+            $link = $divt21link_elementss[$num_link];
+            $url = $link->href;
+            echo "////-*-////".$strt2_l1_2[$j]." +*+ ".$url;
+            
+            //echo count(va)
+            //echo $valueLink[$i]."<br>";
+            echo "<br>";
+            if (isset($valueLink[$i])) {
+                // If there are links, add them to the "link" array in $array_b
+                $array_b["link"][$j] = $url;
+                //echo $array_b["link"]."<br>";
+            }
+            $num_link++;
+            //echo $url."<br>";
+        }
+    }
+    array_push($array_a,$array_b);
 }
+?><br><?php
+echo $count_divt21link."<br>";
+echo $count_divt21links;
+?><br><?php
+
+//----------------------*----------------------*------------------*--------------------
+
+print_r($array_a);
 
 //------------TB1-------------
 $array_c=[count($str1)]; 
@@ -177,7 +265,6 @@ for($i=0;$i<$countStr1;$i++){
 
     //------------------------- ++++ --------------------------------
 
-    //$array_s = array();
     $array_s = array(
         "tb1" => $array_c,
         "tb2" => $array_a
@@ -192,22 +279,22 @@ for($i=0;$i<$countStr1;$i++){
 
     ?><br><br><?php
 
-    // $filename = 'data_api.json';
+    $filename = 'data_api.json';
 
-    // // เปิดไฟล์เพื่อเขียนข้อมูลแบบ Streaming JSON
-    // $file = fopen($filename, 'w');
+    // เปิดไฟล์เพื่อเขียนข้อมูลแบบ Streaming JSON
+    $file = fopen($filename, 'w');
 
-    // if ($file) {
-    //     $json = json_encode($array_s, JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT);
+    if ($file) {
+        $json = json_encode($array_s, JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT);
 
-    //     if (json_last_error() === JSON_ERROR_NONE) {
-    //         fwrite($file, $json);
-    //         fclose($file);
-    //         echo "JSON data has been written to $filename";
-    //     } else {
-    //         echo "Error encoding JSON: " . json_last_error_msg();
-    //     }
-    // } else {
-    //     echo "Error opening file for writing";
-    // }
+        if (json_last_error() === JSON_ERROR_NONE) {
+            fwrite($file, $json);
+            fclose($file);
+            echo "JSON data has been written to $filename";
+        } else {
+            echo "Error encoding JSON: " . json_last_error_msg();
+        }
+    } else {
+        echo "Error opening file for writing";
+    }
 ?>
