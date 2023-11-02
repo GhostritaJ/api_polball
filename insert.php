@@ -229,7 +229,7 @@ for($i=0;$i<$countStr1;$i++){
         if (json_last_error() === JSON_ERROR_NONE) {
             fwrite($file, $json);
             fclose($file);
-            echo "JSON data has been written to $filename";
+            //echo "JSON data has been written to $filename";
         } else {
             echo "Error encoding JSON: " . json_last_error_msg();
         }
